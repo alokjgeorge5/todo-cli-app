@@ -2,13 +2,19 @@ tasks = []
 
 def add_task():
     title = input("Enter task title: ")
-    priority = input("Enter priority (High/Medium/Low): ").capitalize()
-    if priority not in ['High', 'Medium', 'Low']:
-        print("Invalid priority, defaulting to 'Low'")
-        priority = 'Low'
+    priority = assign_priority(title)
+    print(f"Auto-assigned priority: {priority}")
     tasks.append({'title': title, 'done': False, 'priority': priority})
 
-
+def assign_priority(title):
+    title_lower = title.lower()
+    if any(word in title_lower for word in ["urgent", "asap", "tonight", "now", "immediately"]):
+        return "High"
+    elif any(word in title_lower for word in ["soon", "important", "today"]):
+        return "Medium"
+    else:
+        return "Low"
+    
 def list_tasks():
     if not tasks:
         print("No tasks yet!")
