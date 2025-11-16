@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 158 75% 96%;
+    --foreground: 158 50% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 158 50% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 158 50% 15%;
+
+    --primary: 158 64% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 158 30% 90%;
+    --secondary-foreground: 158 50% 15%;
+
+    --muted: 158 20% 92%;
+    --muted-foreground: 158 10% 45%;
+
+    --accent: 158 64% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 158 20% 85%;
+    --input: 158 20% 85%;
+    --ring: 158 64% 52%;
+
+    --radius: 0.75rem;
+
+    /* Glassmorphism colors */
+    --glass-bg: 0 0% 100%;
+    --glass-border: 0 0% 100%;
+    --warm-tint: 38 60% 96%;
+    
+    /* Heatmap colors (GitHub style) */
+    --heatmap-0: 210 13% 93%;
+    --heatmap-1: 142 68% 77%;
+    --heatmap-2: 142 60% 60%;
+    --heatmap-3: 142 55% 47%;
+    --heatmap-4: 142 50% 35%;
+
+    /* Gradient stops */
+    --gradient-start: 158 75% 96%;
+    --gradient-mid: 158 85% 92%;
+    --gradient-end: 158 70% 85%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 158 30% 10%;
+    --foreground: 158 20% 95%;
+
+    --card: 158 25% 15%;
+    --card-foreground: 158 20% 95%;
+
+    --popover: 158 25% 15%;
+    --popover-foreground: 158 20% 95%;
+
+    --primary: 158 64% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 158 20% 20%;
+    --secondary-foreground: 158 20% 95%;
+
+    --muted: 158 20% 20%;
+    --muted-foreground: 158 10% 60%;
+
+    --accent: 158 20% 20%;
+    --accent-foreground: 158 20% 95%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 158 20% 25%;
+    --input: 158 20% 25%;
+    --ring: 158 64% 52%;
+
+    /* Glassmorphism colors for dark mode */
+    --glass-bg: 158 25% 15%;
+    --glass-border: 158 20% 30%;
+    --warm-tint: 158 25% 15%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-[hsl(var(--gradient-start))] via-[hsl(var(--gradient-mid))] to-[hsl(var(--gradient-end))] text-foreground font-sans;
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(31, 41, 55, 0.15);
+  }
+
+  .glass-item {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .glass-input {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .glass-clock {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .warm-glass {
+    background: rgba(245, 243, 237, 0.2);
+  }
+}
